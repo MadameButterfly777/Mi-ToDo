@@ -1,37 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import "bulma/css/bulma.min.css";
+import TaskInput from "./components/TaskInput";
+import TaskList from "./components/TaskList";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("all");
+
+  const addTask = (text) => {
+    setTasks([...tasks, { text, completed: false }]);
+  };
+
+  const toggleTask = (i) => {
+    const t = [...tasks];
+    t[i].completed = !t[i].completed;
+    setTasks(t);
+  };
+
+  const deleteTask = (i) => {
+    setTasks(tasks.filter((_, idx) => idx !== i));
+  };
+
+  const editTask = (i, text) => {
+    const t = [...tasks];
+    t[i].text = text;
+    setTasks(t);
+  };
+
+  const visibleTasks = tasks.filter((t) => {
+    if (filter === "completed") return t.completed;
+    if (filter === "pending") return !t.completed;
+    return true;
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>hola amorchito
-        
-      </h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  <section className="hero is-fullheight ">
+    <div className="hero-body is-fullheight">
+      <div className="container is-max-desktop has-text-centered">
 
-export default App
+        <h1 className="title has-text-white is-size-1 mb-6">
+          ✦ Mis Tareas con React ✦
+        </h1>
+
+        <div className="select is-dark mb-5">
+          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+            <option value="all">Todas</option>
+            <option value="completed">Completadas</option>
+            <option value="pending">Pendientes</option>
+          </select>
+        </div>
+
+        <div className="box has-background-black-bis p-5">
+          <TaskInput onAdd={addTask} />
+        </div>
+
+        <div className="mt-5">
+          <TaskList
+            tasks={visibleTasks}
+            onToggle={toggleTask}
+            onDelete={deleteTask}
+            onEdit={editTask}
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+);
+
+}
