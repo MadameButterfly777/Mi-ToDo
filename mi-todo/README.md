@@ -1,16 +1,44 @@
-# React + Vite
+# ✦ Mi ToDo ✦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de lista de tareas desarrollada con **React + Vite**, con una estética oscura y minimalista, pensada para organizar pendientes de forma simple e intuitiva.
 
-Currently, two official plugins are available:
+🌙 Proyecto realizado como práctica de React, manejo de estado y deploy en GitHub Pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Demo en vivo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 https://madamebutterfly777.github.io/Mi-ToDo
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías utilizadas
+
+- ⚛️ React
+- ⚡ Vite
+- 🎨 Bulma CSS
+- 🧶 Yarn
+- 🌐 GitHub Pages
+
+---
+
+## ✨ Funcionalidades
+
+- ➕ Agregar tareas
+- ✅ Marcar tareas como completadas
+- ✏️ Editar tareas
+- 🗑️ Eliminar tareas
+- 🔍 Filtrar por:
+  - Todas
+  - Completadas
+  - Pendientes
+- 💅 Interfaz responsive con estilo oscuro
+
+---
+
+## 📦 Instalación y uso local
+
+Cloná el repositorio:
+
+```bash
+git clone https://github.com/MadameButterfly777/Mi-ToDo.git
